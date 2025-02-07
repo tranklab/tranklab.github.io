@@ -556,7 +556,7 @@ setTimeout(function(){ (function (d, w, k, o, g) { var n=d.getElementsByTagName(
 }, 2000);
 </script>
 
-<style>
+ <style>
     /* Контейнер для кнопки та тексту */
     #audioContainer {
         position: fixed;
@@ -571,61 +571,9 @@ setTimeout(function(){ (function (d, w, k, o, g) { var n=d.getElementsByTagName(
     /* Текст "Слухати про нас" */
     #audioText {
         font-size: 16px;
-        color: #555;
-        margin-right: 10px;
-        transition: opacity 0.3s;
-    }
-
-    /* Стилізація кнопки */
-    #playButton {
-        width: 50px;
-        height: 50px;
-        background-color: rgba(128, 128, 128, 0.7); /* Напівпрозорий сірий */
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        transition: background 0.3s, transform 0.2s;
-    }
-
-    /* Анімація кнопки при наведенні */
-    #playButton:hover {
-        background-color: rgba(100, 100, 100, 0.9);
-        transform: scale(1.1);
-    }
-
-    /* Іконка відтворення/паузи */
-    #playButton::after {
-        content: '▶';
-        font-size: 20px;
-        color: white;
         font-weight: bold;
-    }
-
-    /* Зміна іконки при відтворенні */
-    #playButton.playing::after {
-        content: '❚❚';
-    }
-</style>
-
-<style>
-    /* Контейнер для кнопки та тексту */
-    #audioContainer {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        display: flex;
-        align-items: center;
-        z-index: 1000;
-        transition: opacity 0.3s;
-    }
-
-    /* Текст "Слухати про нас" */
-    #audioText {
-        font-size: 16px;
-        color: #555;
+        color: black;
+        text-shadow: 1px 1px 3px white, -1px -1px 3px white, 1px -1px 3px white, -1px 1px 3px white;
         margin-right: 10px;
         transition: opacity 0.3s;
     }
@@ -642,6 +590,10 @@ setTimeout(function(){ (function (d, w, k, o, g) { var n=d.getElementsByTagName(
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         transition: background 0.3s, transform 0.2s;
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+        font-family: Arial, sans-serif;
     }
 
     /* Анімація кнопки при наведенні */
@@ -653,17 +605,13 @@ setTimeout(function(){ (function (d, w, k, o, g) { var n=d.getElementsByTagName(
     /* Іконка відтворення (тонкий трикутник) */
     #playButton::after {
         content: '▶';
-        font-size: 20px;
-        color: white;
-        font-weight: bold;
-        font-family: Arial, sans-serif;
     }
 
-    /* Зміна іконки при відтворенні (тонкі риски паузи) */
+    /* Зміна іконки при відтворенні (тонкі риски паузи з пробілом) */
     #playButton.playing::after {
-        content: '‖'; /* Тонкі вертикальні риски */
-        font-size: 18px;
-        letter-spacing: -2px;
+        content: '❘ ❘';
+        font-size: 20px;
+        letter-spacing: 2px; /* Відступ між рисками */
     }
 </style>
 
@@ -694,5 +642,4 @@ setTimeout(function(){ (function (d, w, k, o, g) { var n=d.getElementsByTagName(
     });
 </script>
 
- 
 </body></html>
