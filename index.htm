@@ -557,56 +557,82 @@ setTimeout(function(){ (function (d, w, k, o, g) { var n=d.getElementsByTagName(
 </script>
 
 <style>
-    /* Стилі для плаваючої кнопки */
-    #playButton {
+    /* Контейнер для кнопки та тексту */
+    #audioContainer {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        width: 60px;
-        height: 60px;
-        background-color: #007BFF;
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.3s;
+    }
+
+    /* Текст "Слухати про нас" */
+    #audioText {
+        font-size: 16px;
+        color: #555;
+        margin-right: 10px;
+        transition: opacity 0.3s;
+    }
+
+    /* Стилізація кнопки */
+    #playButton {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(128, 128, 128, 0.7); /* Напівпрозорий сірий */
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
         cursor: pointer;
-        z-index: 1000;
-        transition: background 0.3s;
+        transition: background 0.3s, transform 0.2s;
     }
+
+    /* Анімація кнопки при наведенні */
     #playButton:hover {
-        background-color: #0056b3;
+        background-color: rgba(100, 100, 100, 0.9);
+        transform: scale(1.1);
     }
+
+    /* Іконка відтворення/паузи */
     #playButton::after {
         content: '▶';
-        font-size: 24px;
+        font-size: 20px;
         color: white;
         font-weight: bold;
     }
 
-    /* Додаємо інший значок для паузи */
+    /* Зміна іконки при відтворенні */
     #playButton.playing::after {
         content: '❚❚';
     }
 </style>
 
+<!-- Контейнер для кнопки та тексту -->
+<div id="audioContainer">
+    <span id="audioText">Слухати про нас</span>
+    <div id="playButton"></div>
+</div>
+
 <!-- Аудіофайл (невидимий) -->
 <audio id="audioPlayer" src="rrc1trim.mp3"></audio>
-
-<!-- Плаваюча кнопка -->
-<div id="playButton"></div>
 
 <script>
     const playButton = document.getElementById('playButton');
     const audioPlayer = document.getElementById('audioPlayer');
+    const audioText = document.getElementById('audioText');
 
     playButton.addEventListener('click', function () {
         if (audioPlayer.paused) {
             audioPlayer.play();
             playButton.classList.add('playing');
+            audioText.style.opacity = '0'; // Ховаємо текст
         } else {
             audioPlayer.pause();
             playButton.classList.remove('playing');
+            audioText.style.opacity = '1'; // Повертаємо текст
         }
     });
 </script>
